@@ -171,4 +171,4 @@ cython_debug/
 .pypirc
 
 # Ignore Test Notebook
-sc2replaystats.ipynb
+sc2_stats.ipynb
