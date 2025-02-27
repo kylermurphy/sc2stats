@@ -6,7 +6,7 @@ author:
 # The `>` after `description:` means to ignore line-breaks until next key.
 # If you want to omit the line-break after the end of text, use `>-` instead.
 description: >
-  UpATree Ladder Stats.
+  Ladder Stats.
 
 # Build settings
 
@@ -39,7 +39,7 @@ minima:
   # solarized-light	   Light variant of solarized color scheme.
   # solarized-dark	   Dark variant of solarized color scheme.
   # solarized	         Adaptive skin for solarized color scheme skins.
-  skin: solarized-light
+  skin: solarized-dark
 
   # Set to `true` to show excerpts on the homepage.
   #show_excerpts: false
