@@ -8,8 +8,7 @@ layout: home
 
 <img src="./assets/kydo.png">
   
-<img src="./assets/MMR.png">
-
+<img src="./assets/wtf.png">
 
 <img src="./assets/APM.png">
 
