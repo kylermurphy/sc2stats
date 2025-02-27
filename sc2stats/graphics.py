@@ -8,6 +8,7 @@ import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
 import matplotlib.ticker as ticker
 
+
 from PIL import Image, ImageDraw, ImageEnhance, ImageFilter
 from PIL import ImageOps
 
@@ -89,7 +90,7 @@ def draw_hexagon(ax, center, radius, color='w'):
                 orientation=0,
                 fill=True))
 
-def player_banner(b_text,race,corner_boarder=False):
+def player_banner(b_text,race,corner_boarder=False, p_df=False):
     
     np.random.seed(2019)
 
@@ -127,7 +128,20 @@ def player_banner(b_text,race,corner_boarder=False):
     ax.set_ylim([0, 100])
     ax.axis("off")
 
-
+    if not p_df.empty:
+        plt.rcParams['font.family']='fantasy'
+        plt.rcParams['font.weight']='extra bold'
+        plt.rcParams['text.color']='white'
+        tab = ax.table(cellText=p_df, bbox=[0.80,0.08,0.15,0.25],colColours='white',
+                       colWidths=[0.1,0.001,0.1], cellLoc='right',colLoc='right')
+        tab.set_zorder(4)
+        tab.set_alpha(0)
+        tab.auto_set_font_size(False)
+        tab.set_fontsize(12)
+        
+        for cell in tab._cells:
+            tab._cells[cell].set_alpha(0)
+        plt.rcdefaults()
 
     image_xaxis = 0.04
     image_yaxis = 0.08
@@ -152,10 +166,12 @@ def player_banner(b_text,race,corner_boarder=False):
               fontsize=26, va='center')
     ax_t.axis('off')
 
+    
+
     # 'serif', 'sans-serif', 'cursive', 'fantasy', 'monospace'
     plt.subplots_adjust(top=1, bottom=0, left=0, right=1)
     plt.show()
-    figure.savefig(f'./graphics/{b_text}.png')
+    figure.savefig(f'./graphics/{b_text}.png',transparent=True)
 
     banner = Image.open(f'./graphics/{b_text}.png')
     banner = banner.crop((0,250,393,375))
